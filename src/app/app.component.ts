@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
                vers: 'classic',
                 margin: {
                     top: 5,
-                    right: 50,
+                    right: 30,
                     bottom: 5,
                     left: 50
                 },
