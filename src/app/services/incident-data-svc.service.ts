@@ -40,24 +40,70 @@ export class IncidentDataSvcService {
     }
   ];
 
+  gridData =   [
+    {
+      "type": "Missing Incident",
+      "date": "Oct 12",
+      "location": "Kalyani Vista , Bangalore",
+      "region": "INDIA",
+      "status": "Open",
+    },
+    {
+      "type": "Medical Incident",
+      "date": "Oct 12",
+      "location": "Kalyani Vista , Bangalore",
+      "region": "INDIA",
+      "status": "Open",
+    },
+    {
+      "type": "Transport Incident",
+      "date": "Oct 12",
+      "location": "Kalyani Vista , Bangalore",
+      "region": "INDIA",
+      "status": "Open",
+    },
+    {
+      "type": "Near Miss Incident",
+      "date": "Oct 12",
+      "location": "Kalyani Vista , Bangalore",
+      "region": "INDIA",
+      "status": "Open",
+    },
+    {
+      "type": "Employee Incident",
+      "date": "Oct 12",
+      "location": "Kalyani Vista , Bangalore",
+      "region": "INDIA",
+      "status": "Open",
+    },
+    {
+      "type": "Other Incident",
+      "date": "Oct 12",
+      "location": "Kalyani Vista , Bangalore",
+      "region": "INDIA",
+      "status": "Open",
+    },
+    {
+      "type": "Approvals",
+      "date": "Oct 12",
+      "location": "Kalyani Vista , Bangalore",
+      "region": "INDIA",
+      "status": "Open",
+    }
+  ];
+
   incidentsData =  {
     noofinc : 3,
     incDesc : 'Open Incidents',
-    data : {}
+    data : {},
+    incGridData : {}
   };
 
 
   public getJSON(): Observable<any> {
-
-     // return this.http.get("./assets/incidents.json")
-     this.subrcibeTimer.subscribe((val) => {
-        this.data = this.getRandomData();
-        this.incidentsData.data= this.data;
-        of(this.incidentsData);
-      });
-
-     this.incidentsData.noofinc= Math.floor(Math.random() * 20);
+     this.incidentsData.noofinc=3;
      this.incidentsData.data= this.data;
+     this.incidentsData.incGridData = this.gridData;
      return of(this.incidentsData);
   }
 

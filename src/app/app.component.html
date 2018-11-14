@@ -3,15 +3,37 @@
   <div class="content-container">
       <div class="content-area">
           <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="card">
                       <div class="card-header">
                         Incident Data
                       </div>
                       <div class="card-block">
                           <div class="card-text">
-                            <div id="incidentdata">
-                              <nvd3 [options]="options" [data]="incidentData"></nvd3>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                    <button class="btn btn-sm btn-link incident-clear-icon" (click)="clearFunction();"[ngStyle]="{'bottom': clearIconBtmVal, 'display': isClearVisible}"><clr-icon shape="redo"></clr-icon> Clear </button>
+                                    <div id="incidentdata">
+                                      <nvd3 [options]="options" [data]="incidentData"></nvd3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                    <clr-datagrid>
+                                        <clr-dg-column>Type</clr-dg-column>
+                                        <clr-dg-column>Date</clr-dg-column>
+                                        <clr-dg-column>location</clr-dg-column>
+                                        <clr-dg-column>Region</clr-dg-column>
+                                        <clr-dg-column>Status</clr-dg-column>
+
+                                        <clr-dg-row *ngFor="let incData of incNewData">
+                                            <clr-dg-cell>{{incData.type}}</clr-dg-cell>
+                                            <clr-dg-cell>{{incData.date}}</clr-dg-cell>
+                                            <clr-dg-cell>{{incData.location}}</clr-dg-cell>
+                                            <clr-dg-cell>{{incData.region}}</clr-dg-cell>
+                                            <clr-dg-cell>{{incData.status}}</clr-dg-cell>
+                                        </clr-dg-row>
+                                    </clr-datagrid>
+                                </div>
                             </div>
                           </div>
                       </div>
