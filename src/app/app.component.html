@@ -11,10 +11,12 @@
                       <div class="card-block">
                           <div class="card-text">
                             <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                    <button class="btn btn-sm btn-link incident-clear-icon" (click)="clearFunction();"[ngStyle]="{'bottom': clearIconBtmVal, 'display': isClearVisible}"><clr-icon shape="redo"></clr-icon> Clear </button>
+                                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                                     <div id="incidentdata">
                                       <nvd3 [options]="options" [data]="incidentData"></nvd3>
+                                    </div>
+                                    <div>
+                                        <app-customlegend [clearText]= "clearText" [legendData] = "incGridData"  (legendClickCallBack)="populateIncidentTable($event)" (clearClickCallBack)="clearFunction()"> </app-customlegend>
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -24,8 +26,7 @@
                                         <clr-dg-column>location</clr-dg-column>
                                         <clr-dg-column>Region</clr-dg-column>
                                         <clr-dg-column>Status</clr-dg-column>
-
-                                        <clr-dg-row *ngFor="let incData of incNewData">
+                                        <clr-dg-row *ngFor="let incData of incUpdatedData">
                                             <clr-dg-cell>{{incData.type}}</clr-dg-cell>
                                             <clr-dg-cell>{{incData.date}}</clr-dg-cell>
                                             <clr-dg-cell>{{incData.location}}</clr-dg-cell>

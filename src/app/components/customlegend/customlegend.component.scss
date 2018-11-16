@@ -1,0 +1,49 @@
+@mixin selecttext($property) {
+  -webkit-user-select: $property;
+  -moz-user-select: $property;
+  -ms-user-select: $property;
+  user-select: $property;
+}
+.legend-data {
+  display: table;
+  margin: 0 auto;
+  .legend-wrapper {
+    width: 300px;
+    .container-legend {
+      display: inline-block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      @include selecttext(none);
+      /* Hide the browser's default radio button */
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .checkmark {
+        position: absolute;
+        top: 3px;
+        left: 11px;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        border: 1px solid;
+        .checkmark-inner-circle {
+          position: absolute;
+          display: block;
+          top: 2px;
+          left: 2px;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+      }
+    }
+    .btn-clear {
+      margin-left: 25px;
+    }
+  }
+}
